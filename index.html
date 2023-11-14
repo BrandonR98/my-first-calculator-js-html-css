@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body>
+
+</body>
+<div id="main">
+    <form name="formulario" action="">
+        <input id="entrada"type="text" name="caracteres"><br>
+        <input class="number" type="button" value="1" onclick="formulario.caracteres.value+= 1">
+        <input class="number" type="button" value="2" onclick="formulario.caracteres.value+= 2">
+        <input class="number" type="button" value="3" onclick="formulario.caracteres.value+= 3">
+        <input class="number" type="button" value="+" onclick="add('+')">
+        <br>
+        <input class="number" type="button" value="4" onclick="formulario.caracteres.value+= 4">
+        <input class="number" type="button" value="5" onclick="formulario.caracteres.value+= 5">
+        <input class="number" type="button" value="6" onclick="formulario.caracteres.value+= 6">
+        <input class="number" type="button" value="-" onclick="add('-')">
+        <br>
+        <input class="number" type="button" value="7" onclick="formulario.caracteres.value+= 7">
+        <input class="number" type="button" value="8" onclick="formulario.caracteres.value+= 8">
+        <input class="number" type="button" value="9" onclick="formulario.caracteres.value+= 9">
+        <input class="number" type="button" value="*" onclick="add('*')">
+        <br>
+        <input class="number" type="button" value="C"
+            onclick="eliminar()">
+        <input class="number" type="button" value="0" onclick="formulario.caracteres.value+= 0">
+        <input class="number" type="button" value="="
+            onclick="formulario.caracteres.value= eval(formulario.caracteres.value)">
+        <input class="number" type="button" value="/" onclick="add('/')">
+
+
+    </form>
+
+    <script>
+        function add(caracter) {
+            var act = 0, b = 0;
+            act = formulario.caracteres.value;
+            b = act.charAt(act.length - 1);
+            if (b == '+' || b == '-' || b == '/' || b == '*') {
+                formulario.caracteres.value = act.substring(0, act.length - 1);
+                formulario.caracteres.value += caracter;
+            } else {
+                formulario.caracteres.value += caracter;
+            }
+        }
+
+        function eliminar(){
+            var act = 0;
+            act = formulario.caracteres.value;
+            formulario.caracteres.value = act.substring(0, act.length - 1);
+        }
+    </script>
+</div>
+
+</html>
